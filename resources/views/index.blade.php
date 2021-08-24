@@ -7,15 +7,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Blog Name</h1>
         [<a href='/posts/create'>create</a>]
-        <div class='post'>
+        <h1>Blog Name</h1>
+        <div class='posts'>
             @foreach ($posts as $post)
-            <h2 class='title'>{{ $post->title }}</h2>
-            <p class='body'>{{ $post->body }}</p>
-            <p class='updated_at'>{{ $post->updated_at }}</p>
+                <div class='post'>
+                    <h2 class='title'>{{ $post->title }}</h2>
+                    <p class='body'>{{ $post->body }}</p>
+                </div>
             @endforeach
         </div>
-        <div class='back'>[<a href="/">back</a>]</div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
     </body>
 </html>
